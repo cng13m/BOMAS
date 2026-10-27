@@ -11,7 +11,7 @@
   const titles=$$('.page-intro h1,.statement h2'), intro=$('.intro-copy h2');
   const progress=$('.progress');
   const altered=new Set();
-  let frame=0, current=scrollY, lastTime=0, measurements=[];
+  let frame=0, current=scrollY, heroCurrent=scrollY, lastTime=0, measurements=[];
   function style(el,property,value){if(!el)return;el.style[property]=value;altered.add(el);}
   function measure(){
     const list=[heroScroll,hero,story,...cards,...images,...ornaments,...titles,intro].filter(Boolean);
@@ -24,17 +24,21 @@
     frame=0;
     const target=scrollY, dt=Math.min(64,now-(lastTime||now-16));lastTime=now;
     current+= (target-current)*(1-Math.exp(-dt/65));
+    // Give the opening composition a longer, softer follow-through than the page details.
+    heroCurrent+=(target-heroCurrent)*(1-Math.exp(-dt/180));
     if(Math.abs(target-current)<.1)current=target;
+    if(Math.abs(target-heroCurrent)<.1)heroCurrent=target;
     const max=document.documentElement.scrollHeight-innerHeight;
     progress.style.width=`${max>0?target/max*100:0}%`;
     if(!preference.matches){
       const mobile=innerWidth<=600;
       if(hero){const b=bounds(heroScroll),travel=b?b.height-innerHeight:innerHeight;
-        const p=clamp((current-(b?.top||0))/Math.max(1,travel)*1.3),ease=p*p*(3-2*p);
+        const raw=(heroCurrent-(b?.top||0))/Math.max(1,travel);
+        const p=clamp((raw-.025)/.9),ease=p*p*(3-2*p);
         // Hold the headline in view while the central painting glides into the right margin.
         style(heroArt,'transform',`translate3d(${ease*innerWidth*(mobile?.41:.38)}px,${ease*30}px,0) rotate(${-9+ease*12}deg) scale(${1-ease*(mobile?.57:.28)})`);
         style(heroHeading,'transform',`scale(${1-ease*(mobile?.26:.04)})`);
-        heroLines.forEach((line,i)=>style(line,'transform',`translate3d(0,${ease*(i?8:-8)}px,0)`));
+        heroLines.forEach((line,i)=>style(line,'transform',`translate3d(${ease*(mobile?(i?5:-8):(i?24:-50))}px,${ease*-35}px,0)`));
         style($('.hero-note'),'opacity',String(1-ease*.75));
       }
       if(story){const b=bounds(story),p=clamp((current-b.top)/Math.max(1,b.height-innerHeight));
@@ -54,13 +58,13 @@
       titles.forEach(el=>{const p=position(el,current);style(el,'transform',`translate3d(${(.5-p)*(mobile?16:55)}px,0,0)`);});
       if(intro)style(intro,'transform',`translate3d(${(.5-position(intro,current))*35}px,0,0)`);
     }
-    if(current!==target)frame=requestAnimationFrame(draw);else lastTime=0;
+    if(current!==target||(!preference.matches&&hero&&heroCurrent!==target))frame=requestAnimationFrame(draw);else lastTime=0;
   }
   function wake(){if(!frame)frame=requestAnimationFrame(draw);}
   function configure(){
     root.classList.toggle('motion-enabled',!preference.matches);
     if(preference.matches){altered.forEach(el=>{el.style.transform='';el.style.opacity='';el.style.background='';});altered.clear();}
-    current=scrollY;measure();
+    current=heroCurrent=scrollY;measure();
   }
   addEventListener('scroll',wake,{passive:true});
   addEventListener('resize',measure,{passive:true});
