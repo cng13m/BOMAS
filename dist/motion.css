@@ -18,3 +18,14 @@
 @media(min-width:1800px){.hero .hero-heading{top:29%}.hero h1{font-size:min(16.4vw,320px)}}
 @media(max-width:900px) and (min-width:601px){.hero .hero-heading{top:36%;width:62%}.hero .hero-art{top:36%;width:25%;height:auto;right:5%}.hero .hero-note{right:5%;top:18%;width:29%}.hero .hero-line{top:25%;right:41%;font-size:60px}.hero .art-tag{font-size:6px;padding:10px;right:-10px}}
 @media(max-width:600px){.hero .hero-heading{left:6%;top:25%;width:88%}.hero h1{font-size:22vw;line-height:.86}.hero .hero-art{top:51%;right:16%;width:35%;height:auto;left:auto}.hero .hero-note{left:6%;right:auto;top:15%;width:88%}.hero .hero-note .small{font-size:7px;letter-spacing:1px}.hero .hero-note p{font-size:17px;line-height:1.1;margin-top:8px}.hero .hero-note p br{display:none}.hero .hero-line{top:61%;right:65%;font-size:55px}.hero .art-tag{font-size:6px;right:-19px;padding:9px}.hero .hero-foot p{margin-left:0;font-size:9px}.hero .hero-foot{bottom:24px}}
+
+/* Scroll-to-reveal hero: the original central collage opens into a clear headline. */
+.motion-enabled .hero-scroll{height:185svh;position:relative;background:var(--orange)}
+.motion-enabled .hero-scroll .hero{position:sticky;top:0;height:100svh;min-height:0;max-height:none}
+.motion-enabled .hero .hero-heading{left:3.3%;top:24%;width:94%;z-index:1;transform-origin:left center}
+.motion-enabled .hero h1{font-size:21vw;line-height:.78;letter-spacing:-.045em}
+.motion-enabled .hero .hero-art{left:40%;right:auto;top:28%;width:23%;height:51%;aspect-ratio:auto;transform:rotate(-9deg);transform-origin:left center;z-index:3}
+.motion-enabled .hero .hero-note{top:15%;z-index:4}
+.motion-enabled .hero .hero-line{top:22%;right:7%}
+@media(max-width:900px) and (min-width:601px){.motion-enabled .hero .hero-heading{top:34%}.motion-enabled .hero .hero-art{top:35%;height:38%;width:25%}.motion-enabled .hero .hero-note{top:16%}}
+@media(max-width:600px){.motion-enabled .hero-scroll{height:170svh}.motion-enabled .hero .hero-heading{left:5%;top:30%;width:90%}.motion-enabled .hero h1{font-size:22vw;line-height:.84}.motion-enabled .hero .hero-art{left:34%;right:auto;top:34%;width:40%;height:auto;aspect-ratio:2/3}.motion-enabled .hero .hero-line{top:64%;right:12%;font-size:55px}.motion-enabled .hero .hero-note{top:15%;left:6%;width:88%}.motion-enabled .hero .hero-foot .edition{display:none}}

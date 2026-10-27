@@ -3,7 +3,7 @@
   const root=document.documentElement;
   const clamp=(n,min=0,max=1)=>Math.min(max,Math.max(min,n));
   const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
-  const hero=$('.hero'), heroArt=$('.hero-art'), heroLines=$$('.hero-heading h1>span');
+  const hero=$('.hero'), heroScroll=$('.hero-scroll'), heroArt=$('.hero-art'), heroHeading=$('.hero-heading'), heroLines=$$('.hero-heading h1>span');
   const story=$('.scroll-story'), storyArt=$('.story-art'), words=$$('.story-word');
   const storyCount=$('.story-count'), storyTrack=$('.story-track span');
   const cards=$$('.collection .work'), images=$$('.work-image>img,.work-image>.paper');
@@ -14,7 +14,7 @@
   let frame=0, current=scrollY, lastTime=0, measurements=[];
   function style(el,property,value){if(!el)return;el.style[property]=value;altered.add(el);}
   function measure(){
-    const list=[hero,story,...cards,...images,...ornaments,...titles,intro].filter(Boolean);
+    const list=[heroScroll,hero,story,...cards,...images,...ornaments,...titles,intro].filter(Boolean);
     measurements=list.map(el=>{const r=el.getBoundingClientRect();return {el,top:r.top+scrollY,height:r.height};});
     wake();
   }
@@ -29,11 +29,13 @@
     progress.style.width=`${max>0?target/max*100:0}%`;
     if(!preference.matches){
       const mobile=innerWidth<=600;
-      if(hero){const p=clamp(current/(bounds(hero)?.height||innerHeight));
-        // Separate artwork and type lanes stay clear throughout the scroll.
-        style(heroArt,'transform',`translate3d(0,${p*(mobile?28:45)}px,0) rotate(${-5+p*6}deg)`);
-        heroLines.forEach((line,i)=>style(line,'transform',`translate3d(${p*(i?12:-12)}px,${p*-35}px,0)`));
-        style($('.hero-note'),'opacity',String(1-clamp(p*1.7)));
+      if(hero){const b=bounds(heroScroll),travel=b?b.height-innerHeight:innerHeight;
+        const p=clamp((current-(b?.top||0))/Math.max(1,travel)*1.3),ease=p*p*(3-2*p);
+        // Hold the headline in view while the central painting glides into the right margin.
+        style(heroArt,'transform',`translate3d(${ease*innerWidth*(mobile?.41:.38)}px,${ease*30}px,0) rotate(${-9+ease*12}deg) scale(${1-ease*(mobile?.57:.28)})`);
+        style(heroHeading,'transform',`scale(${1-ease*(mobile?.26:.04)})`);
+        heroLines.forEach((line,i)=>style(line,'transform',`translate3d(0,${ease*(i?8:-8)}px,0)`));
+        style($('.hero-note'),'opacity',String(1-ease*.75));
       }
       if(story){const b=bounds(story),p=clamp((current-b.top)/Math.max(1,b.height-innerHeight));
         style(storyArt,'transform',`translate3d(0,${(p-.5)*55}px,0) rotate(${-9+p*11}deg) scale(${.58+p*.65})`);
