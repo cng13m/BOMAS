@@ -1,6 +1,8 @@
 # BOMAS Atelier
 
-Buildless home page with responsive layouts, scroll reveals, layered parallax, category filters, navigation overlay, and accessible collection preview dialogs. No checkout or real inventory is connected.
+Buildless website with responsive layouts, scroll reveals, layered parallax, navigation overlay, and dedicated Collection, Original Paintings, and Art Prints pages. No checkout or real inventory is connected.
+
+Pages: `index.html`, `collection.html`, `original-paintings.html`, and `art-prints.html`. To regenerate collection pages after updating the homepage's shared navigation or category cards, run `node scripts/generate-pages.mjs`. Generated HTML is committed; deployment needs no build step.
 
 Source repository: https://github.com/cng13m/BOMAS
 
