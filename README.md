@@ -2,6 +2,10 @@
 
 Buildless home page with responsive layouts, scroll reveals, layered parallax, category filters, navigation overlay, and accessible collection preview dialogs. No checkout or real inventory is connected.
 
+Source repository: https://github.com/cng13m/BOMAS
+
+The website is hand-authored in `dist/index.html`, `dist/style.css`, and `dist/app.js`; `dist/` is source and is intentionally committed. Images live in `dist/assets/`. No dependency installation or build step is required. GitHub source hosting does not automatically publish the website.
+
 Serve `dist` with a static HTTP server. Publish using the Sites manifest in `.openai/hosting.json`.
 
 `dist/assets/botanical-study.png` is illustrative AI concept artwork generated with the built-in ImageGen tool; replace with authorized BOMAS artwork before a public storefront launch.
