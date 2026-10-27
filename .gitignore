@@ -1,6 +1,7 @@
 # Dependencies and local tooling
 node_modules/
 .cache/
+.vercel/
 .codex/
 .agents/
 
