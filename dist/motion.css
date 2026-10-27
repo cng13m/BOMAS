@@ -8,7 +8,7 @@
 .hero .hero-heading{left:3.3%;top:31%;width:61%;z-index:4}
 .hero h1{font-size:16.4vw;line-height:.84;letter-spacing:-.035em}
 .hero h1>span:last-child{margin-top:10px}
-.hero .hero-art{left:auto;right:7%;top:32%;width:23%;height:51%;transform:rotate(-5deg);z-index:3}
+.hero .hero-art{left:auto;right:7%;top:32%;width:min(23vw,32svh);height:auto;aspect-ratio:2/3;transform:rotate(-5deg);z-index:3}
 .hero .hero-note{position:absolute;left:auto;right:7%;top:16%;width:23%;margin:0;z-index:4}
 .hero .hero-note p{font-size:clamp(19px,1.8vw,29px);line-height:1.12}
 .hero .hero-note .small{font-size:clamp(8px,.65vw,11px)}
@@ -16,5 +16,5 @@
 .hero .hero-line{top:20%;right:36%;font-size:75px}
 .hero .hero-foot p{margin-right:0;margin-left:10%}
 @media(min-width:1800px){.hero .hero-heading{top:29%}.hero h1{font-size:min(16.4vw,320px)}}
-@media(max-width:900px) and (min-width:601px){.hero .hero-heading{top:36%;width:62%}.hero .hero-art{top:36%;width:25%;height:40%;right:5%}.hero .hero-note{right:5%;top:18%;width:29%}.hero .hero-line{top:25%;right:41%;font-size:60px}.hero .art-tag{font-size:6px;padding:10px;right:-10px}}
-@media(max-width:600px){.hero .hero-heading{left:6%;top:25%;width:88%}.hero h1{font-size:22vw;line-height:.86}.hero .hero-art{top:51%;right:16%;width:35%;height:30%;left:auto}.hero .hero-note{left:6%;right:auto;top:15%;width:88%}.hero .hero-note .small{font-size:7px;letter-spacing:1px}.hero .hero-note p{font-size:17px;line-height:1.1;margin-top:8px}.hero .hero-note p br{display:none}.hero .hero-line{top:61%;right:65%;font-size:55px}.hero .art-tag{font-size:6px;right:-19px;padding:9px}.hero .hero-foot p{margin-left:0;font-size:9px}.hero .hero-foot{bottom:24px}}
+@media(max-width:900px) and (min-width:601px){.hero .hero-heading{top:36%;width:62%}.hero .hero-art{top:36%;width:25%;height:auto;right:5%}.hero .hero-note{right:5%;top:18%;width:29%}.hero .hero-line{top:25%;right:41%;font-size:60px}.hero .art-tag{font-size:6px;padding:10px;right:-10px}}
+@media(max-width:600px){.hero .hero-heading{left:6%;top:25%;width:88%}.hero h1{font-size:22vw;line-height:.86}.hero .hero-art{top:51%;right:16%;width:35%;height:auto;left:auto}.hero .hero-note{left:6%;right:auto;top:15%;width:88%}.hero .hero-note .small{font-size:7px;letter-spacing:1px}.hero .hero-note p{font-size:17px;line-height:1.1;margin-top:8px}.hero .hero-note p br{display:none}.hero .hero-line{top:61%;right:65%;font-size:55px}.hero .art-tag{font-size:6px;right:-19px;padding:9px}.hero .hero-foot p{margin-left:0;font-size:9px}.hero .hero-foot{bottom:24px}}
