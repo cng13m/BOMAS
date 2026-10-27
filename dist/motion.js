@@ -30,8 +30,9 @@
     if(!preference.matches){
       const mobile=innerWidth<=600;
       if(hero){const p=clamp(current/(bounds(hero)?.height||innerHeight));
-        style(heroArt,'transform',`translate3d(${p*(mobile?18:90)}px,${p*130}px,0) rotate(${-9+p*21}deg) scale(${1+p*.17})`);
-        heroLines.forEach((line,i)=>style(line,'transform',`translate3d(${p*(i?90:-75)}px,${p*-45}px,0)`));
+        // Separate artwork and type lanes stay clear throughout the scroll.
+        style(heroArt,'transform',`translate3d(0,${p*(mobile?28:45)}px,0) rotate(${-5+p*6}deg)`);
+        heroLines.forEach((line,i)=>style(line,'transform',`translate3d(${p*(i?12:-12)}px,${p*-35}px,0)`));
         style($('.hero-note'),'opacity',String(1-clamp(p*1.7)));
       }
       if(story){const b=bounds(story),p=clamp((current-b.top)/Math.max(1,b.height-innerHeight));
