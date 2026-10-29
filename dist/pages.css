@@ -60,3 +60,9 @@
 
 /* Upright artwork inside collection cards, including hover and reduced motion. */
 .collection .original>img,.collection .paper,.collection .work:hover .original>img,.collection .work:hover .paper{transform:none}
+
+/* Match the print presentation to the original painting's footprint. */
+.collection .paper{width:67%;height:81%;padding:14px;display:flex;flex-direction:column;box-sizing:border-box;min-height:0;flex-shrink:0}
+.collection .paper img{width:100%;height:0;min-height:0;flex:1;aspect-ratio:auto;object-fit:cover;object-position:center}
+.collection .paper>span{flex-shrink:0;padding-top:10px;font-size:5px}
+@media(max-width:600px){.collection .paper{padding:10px}.collection .paper>span{padding-top:7px;font-size:4px}}
