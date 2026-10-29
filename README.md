@@ -4,7 +4,7 @@ Buildless website with responsive layouts, scroll reveals, layered parallax, nav
 
 Pages: `index.html`, `collection.html`, `original-paintings.html`, and `art-prints.html`. To regenerate collection pages after updating the homepage's shared navigation or category cards, run `node scripts/generate-pages.mjs`. Generated HTML is committed; deployment needs no build step.
 
-Scroll choreography lives in `dist/motion.js` and `dist/motion.css`: a pinned homepage artwork sequence, opposing title movement, rotating details, staggered gallery cards, and artwork parallax across all pages. Native scrolling is preserved, motion stops when idle, and reduced-motion preferences switch to a static layout. `node scripts/add-motion.mjs` maintains the homepage scene before regenerating pages.
+Scroll choreography lives in `dist/motion.js` and `dist/motion.css`: a square hero painting that glides right to reveal the headline, opposing title movement, rotating details, staggered gallery cards, and artwork parallax across all pages. Native scrolling is preserved, motion stops when idle, and reduced-motion preferences switch to a static layout. The homepage proceeds directly from the hero to paintings and prints. `node scripts/add-motion.mjs` maintains the hero animation assets before regenerating pages.
 
 Source repository: https://github.com/cng13m/BOMAS
 

@@ -4,13 +4,17 @@ import {fileURLToPath} from 'node:url';
 import {renderIcons} from './icons.mjs';
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'../dist');
 let home=fs.readFileSync(path.join(root,'index.html'),'utf8');
+// Keep the homepage focused on browsing art immediately after the hero.
+home=home.replace(/<section class="scroll-story"[\s\S]*?<\/section>/,'').replace(/<section class="intro"[\s\S]*?<\/section>/,'');
+home=home.replace(/<a href="#atelier">Our world[\s\S]*?<\/a>/g,'').replace('02 / THE COLLECTION','01 / THE COLLECTION');
+home=home.replace('href="#atelier" class="scroll-link"','href="#collection" class="scroll-link"');
 home=renderIcons(home);
 if(!home.includes('href="pages.css"'))home=home.replace('</head>','<link rel="stylesheet" href="pages.css"></head>');
 home=home.replace(/<dialog[\s\S]*?<\/dialog>/,'');
 home=home.replace(/<button class="work reveal" id="(originals|prints)"[^>]*>([\s\S]*?)<\/button>/g,(_,type,content)=>`<a class="work reveal" id="${type}" href="${type==='originals'?'original-paintings':'art-prints'}.html">${content}</a>`);
 home=home.replace(/<div class="categories reveal"[\s\S]*?<\/div>/,`<nav class="categories reveal" aria-label="Collection pages"><a href="collection.html">All works ↗</a><a href="original-paintings.html">Original Paintings ↗</a><a href="art-prints.html">Art Prints ↗</a></nav>`);
 home=home.replace(/href="#collection"/g,'href="collection.html"').replace(/href="#originals"/g,'href="original-paintings.html"').replace(/href="#prints"/g,'href="art-prints.html"').replace(/ data-category="[^"]*"/g,'');
-home=home.replace('href="collection.html" class="scroll-link"','href="#atelier" class="scroll-link"');
+home=home.replace('href="collection.html" class="scroll-link"','href="#collection" class="scroll-link"');
 fs.writeFileSync(path.join(root,'index.html'),home);
 const head=home.slice(0,home.indexOf('<body>'));
 const sharedStart=home.slice(home.indexOf('<div class="progress"'),home.indexOf('<main>')).replace(/href="#home"/g,'href="index.html"').replace(/href="#atelier"/g,'href="index.html#atelier"');
