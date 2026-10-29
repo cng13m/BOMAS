@@ -18,3 +18,11 @@
 .seller-description{font-size:14px;line-height:1.8;white-space:pre-wrap}
 .artwork-preview-note{font-size:11px;line-height:1.7;opacity:.65;margin-top:35px}
 @media(max-width:600px){.artwork-gallery{gap:14px;padding:8px 6% 50px}#artwork-details{padding:50px 22px 25px}.artwork-details-layout{grid-template-columns:1fr;gap:25px}.artwork-full{max-height:48svh}.artwork-description h2{font-size:34px}.seller-description{font-size:13px}}
+
+/* Larger gallery art and dedicated listing pages. */
+.artwork-gallery{max-width:none;gap:28px}
+.artwork-tile{height:clamp(250px,65svh,620px);cursor:pointer}
+.listing-wrap{padding:20px 5% 80px}.listing-back{display:inline-block;font-size:12px;margin-bottom:30px}
+.listing-product{display:grid;grid-template-columns:1.15fr 1fr;gap:7%;align-items:start}.listing-image{position:sticky;top:24px}.listing-image img{display:block;width:100%;height:75svh;object-fit:contain}.listing-image p{font-size:10px;text-align:center;margin:16px 0;opacity:.6}
+.listing-summary{max-width:540px}.listing-summary h1{font:clamp(36px,4.5vw,66px)/1.04 'Libre Caslon Display',serif;margin:18px 0 22px}.listing-price{font-size:23px;margin:0 0 12px}.listing-status{font-size:11px;opacity:.65;margin-bottom:24px}.purchase-unavailable{width:100%;padding:18px;background:#deddd5;color:#68685e;cursor:default;font-size:12px}.listing-disclosure{font-size:10px;line-height:1.7;opacity:.6;margin:14px 0 32px}.listing-summary h2{font-size:15px;font-weight:500;margin:28px 0 14px}.listing-description p,.listing-accordion p{font-size:13px;line-height:1.8;white-space:pre-wrap}.listing-information dl{margin:0 0 28px}.listing-information dl>div{display:grid;grid-template-columns:1fr 1.4fr;gap:20px;padding:13px 0;border-bottom:1px solid var(--line);font-size:12px}.listing-information dd{margin:0;opacity:.7}.listing-accordion{border-bottom:1px solid var(--line);padding:18px 0}.listing-accordion summary{font-size:13px;cursor:pointer}.listing-accordion p{opacity:.7}
+@media(max-width:600px){.artwork-gallery{grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}.artwork-tile{height:clamp(230px,42svh,380px)}.listing-wrap{padding:12px 6% 55px}.listing-product{grid-template-columns:1fr;gap:32px}.listing-image{position:relative;top:auto}.listing-image img{height:55svh}.listing-summary h1{font-size:42px}.listing-summary{max-width:none}}

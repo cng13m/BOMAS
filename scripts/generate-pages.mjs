@@ -2,7 +2,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {renderIcons} from './icons.mjs';
-import {gallery} from './gallery.mjs';
+import {gallery, artworks, listing} from './gallery.mjs';
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'../dist');
 let home=fs.readFileSync(path.join(root,'index.html'),'utf8');
 // Keep the homepage focused on browsing art immediately after the hero.
@@ -26,3 +26,5 @@ const collection=home.match(/<section id="collection"[\s\S]*?<\/section>/)[0].re
 save('collection.html','The Collection','Explore original paintings and art prints from BOMAS Atelier.',`<section class="page-intro category-intro"><h1>The <em>collection.</em></h1></section>${collection}`);
 for(const original of [true,false]){const title=original?'Original Paintings':'Art Prints',type=original?'originals':'prints',other=original?'Art Prints':'Original Paintings',otherFile=original?'art-prints.html':'original-paintings.html';const art=original?'<img src="assets/botanical-study.png" alt="Botanical Study, illustrative original painting concept">':'<div class="paper"><img src="assets/botanical-study.png" alt="Botanical Study, illustrative art print concept"><span>BOTANICAL STUDY / BOMAS ATELIER</span></div>';save(original?'original-paintings.html':'art-prints.html',title,`Discover the upcoming ${title.toLowerCase()} collection at BOMAS Atelier.`,`<section class="page-intro category-intro"><h1>${original?'Original <em>paintings.</em>':'Art <em>prints.</em>'}</h1></section>${gallery(type)}`);}
 console.log('Updated homepage and generated three collection pages.');
+
+for(const artwork of artworks)save('listing-'+artwork.id+'.html',artwork.title,'Artwork details from BOMAS Atelier.',listing(artwork));
