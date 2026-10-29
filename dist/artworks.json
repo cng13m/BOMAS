@@ -1,0 +1,6 @@
+[
+  {"id":"original-preview-1","category":"originals","title":"Botanical Study","image":"assets/botanical-study.png","sellerDescription":null,"preview":true,"detailCrop":false},
+  {"id":"original-preview-2","category":"originals","title":"Botanical Study — detail preview","image":"assets/botanical-study.png","sellerDescription":null,"preview":true,"detailCrop":true},
+  {"id":"print-preview-1","category":"prints","title":"Botanical Study — print preview","image":"assets/botanical-study.png","sellerDescription":null,"preview":true,"detailCrop":false},
+  {"id":"print-preview-2","category":"prints","title":"Botanical Study — print detail preview","image":"assets/botanical-study.png","sellerDescription":null,"preview":true,"detailCrop":true}
+]
