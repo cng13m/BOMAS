@@ -17,3 +17,5 @@ For Vercel, import this repository with Root Directory set to the repository roo
 `dist/assets/botanical-study.png` is illustrative AI concept artwork generated with the built-in ImageGen tool; replace with authorized BOMAS artwork before a public storefront launch.
 
 Image prompt: A single expressive abstract botanical still life painting, edge-to-edge, no frame or wall. Cut-paper-like organic shapes of deep cobalt blue, muted olive foliage, pale butter yellow vase and burnt orange petals on warm ivory. Intuitive brushwork, imperfect edges, layered thick gouache, visible linen paper grain. Asymmetrical contemporary gallery composition, no text or signature.
+
+Seller listing content lives in dist/artworks.json. Each listing has an image, title, category, and sellerDescription. After editing listings, run node scripts/generate-pages.mjs and commit the JSON plus generated HTML. Set preview to false only for real seller listings. Current gallery slots are layout previews using one concept artwork and its detail; there is no seller dashboard or checkout yet.
