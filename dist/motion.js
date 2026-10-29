@@ -32,7 +32,7 @@
     progress.style.width=`${max>0?target/max*100:0}%`;
     if(!preference.matches){
       const mobile=innerWidth<=600;
-      if(hero){const b=bounds(heroScroll),travel=b?b.height-innerHeight:innerHeight;
+      if(hero){const b=bounds(heroScroll),travel=mobile?(bounds(hero)?.height||innerHeight)*.6:(b?b.height-innerHeight:innerHeight);
         const raw=(heroCurrent-(b?.top||0))/Math.max(1,travel);
         const p=clamp((raw-.025)/.9),ease=p*p*(3-2*p);
         // Hold the headline in view while the central painting glides into the right margin.

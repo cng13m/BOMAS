@@ -33,3 +33,18 @@
 /* Keep the moving hero artwork square at every breakpoint. */
 .hero .hero-art,.motion-enabled .hero .hero-art{height:auto;aspect-ratio:1/1}
 .hero .hero-art img{display:block;object-fit:cover;object-position:center}
+
+/* Compact mobile opening: show the collection sooner, without a long pinned runway. */
+@media(max-width:600px){
+  .hero-scroll,.motion-enabled .hero-scroll{height:auto}
+  .hero,.motion-enabled .hero-scroll .hero{position:relative;height:clamp(480px,68svh,600px);min-height:0;max-height:none}
+  .hero .hero-note,.motion-enabled .hero .hero-note{top:100px;left:6%;width:88%}
+  .hero .hero-note p{font-size:17px;line-height:1.25;margin:9px 0 0;max-width:280px}
+  .hero .hero-note p br{display:block}
+  .hero .hero-heading,.motion-enabled .hero .hero-heading{top:clamp(180px,25svh,215px);left:5%;width:90%}
+  .hero .hero-art,.motion-enabled .hero .hero-art{top:clamp(195px,27svh,230px)}
+  .hero .hero-line,.motion-enabled .hero .hero-line{top:auto;bottom:100px;right:12%;font-size:42px}
+  .hero .hero-foot{bottom:22px;gap:16px}
+  .hero .hero-foot p{font-size:8px;max-width:140px}
+  .hero .scroll-link{font-size:7px;letter-spacing:.7px}
+}
