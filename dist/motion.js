@@ -50,9 +50,10 @@
         storyCount.textContent=`0${Math.min(3,Math.floor(p*3)+1)} / 03`;
         storyTrack.style.transform=`scaleX(${p})`;
       }
-      cards.forEach((card,i)=>{const p=position(card,current);style(card,'transform',`translate3d(0,${(.5-p)*(mobile?25:85)*(i?-1:1)}px,0)`);});
+      // Keep category panels aligned; only their artwork gets a small amount of drift.
+      cards.forEach(card=>style(card,'transform','none'));
       images.forEach((image,i)=>{const p=position(image,current),paper=image.classList.contains('paper');
-        style(image,'transform',`translate3d(0,${(.5-p)*(mobile?22:55)}px,0) rotate(${paper?11-p*12:(.5-p)*5}deg) scale(${1.02+p*.045})`);
+        style(image,'transform',`translate3d(0,${(.5-p)*(mobile?6:12)}px,0) rotate(${paper?4-p*.6:(.5-p)*.6}deg) scale(${1.01+p*.01})`);
       });
       ornaments.forEach(el=>style(el,'transform',`rotate(${position(el,current)*210}deg)`));
       titles.forEach(el=>{const p=position(el,current);style(el,'transform',`translate3d(${(.5-p)*(mobile?16:55)}px,0,0)`);});
