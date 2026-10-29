@@ -52,3 +52,8 @@
 .purchase-unavailable{background:#e8e7df;border:1px solid #d2d1c7;color:#66685d}
 @media(max-width:900px){.product-image{padding:22px;height:390px}.product-caption{padding:18px}.product-caption h2{font-size:23px}.listing-product{gap:24px}.listing-summary{padding:24px}}
 @media(max-width:600px){.artwork-gallery{gap:14px;padding-top:8px}.product-image{height:260px;padding:18px 12px}.product-badge{font-size:7px;padding:5px 6px;top:8px;left:8px}.product-caption{padding:14px;gap:17px}.product-caption h2{font-size:22px}.product-caption p{font-size:10px;line-height:1.5}.product-view{font-size:8px;letter-spacing:.3px;gap:5px}.product-view svg{width:13px;height:13px}.listing-image{padding:22px}.listing-image img{height:52svh}.listing-summary{padding:24px}.listing-summary h1{font-size:38px}}
+
+/* The entire product card is the link; keep its caption compact. */
+.product-caption{gap:0;padding:18px 22px}
+@media(max-width:900px){.product-caption{padding:16px 18px}}
+@media(max-width:600px){.product-caption{padding:12px 14px}}
