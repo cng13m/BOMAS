@@ -57,3 +57,6 @@
 .product-caption{gap:0;padding:18px 22px}
 @media(max-width:900px){.product-caption{padding:16px 18px}}
 @media(max-width:600px){.product-caption{padding:12px 14px}}
+
+/* Upright artwork inside collection cards, including hover and reduced motion. */
+.collection .original>img,.collection .paper,.collection .work:hover .original>img,.collection .work:hover .paper{transform:none}
