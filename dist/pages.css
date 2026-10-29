@@ -26,3 +26,29 @@
 .listing-product{display:grid;grid-template-columns:1.15fr 1fr;gap:7%;align-items:start}.listing-image{position:sticky;top:24px}.listing-image img{display:block;width:100%;height:75svh;object-fit:contain}.listing-image p{font-size:10px;text-align:center;margin:16px 0;opacity:.6}
 .listing-summary{max-width:540px}.listing-summary h1{font:clamp(36px,4.5vw,66px)/1.04 'Libre Caslon Display',serif;margin:18px 0 22px}.listing-price{font-size:23px;margin:0 0 12px}.listing-status{font-size:11px;opacity:.65;margin-bottom:24px}.purchase-unavailable{width:100%;padding:18px;background:#deddd5;color:#68685e;cursor:default;font-size:12px}.listing-disclosure{font-size:10px;line-height:1.7;opacity:.6;margin:14px 0 32px}.listing-summary h2{font-size:15px;font-weight:500;margin:28px 0 14px}.listing-description p,.listing-accordion p{font-size:13px;line-height:1.8;white-space:pre-wrap}.listing-information dl{margin:0 0 28px}.listing-information dl>div{display:grid;grid-template-columns:1fr 1.4fr;gap:20px;padding:13px 0;border-bottom:1px solid var(--line);font-size:12px}.listing-information dd{margin:0;opacity:.7}.listing-accordion{border-bottom:1px solid var(--line);padding:18px 0}.listing-accordion summary{font-size:13px;cursor:pointer}.listing-accordion p{opacity:.7}
 @media(max-width:600px){.artwork-gallery{grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}.artwork-tile{height:clamp(230px,42svh,380px)}.listing-wrap{padding:12px 6% 55px}.listing-product{grid-template-columns:1fr;gap:32px}.listing-image{position:relative;top:auto}.listing-image img{height:55svh}.listing-summary h1{font-size:42px}.listing-summary{max-width:none}}
+
+/* Storefront cards: a gallery wall, framed art, and a clear listing action. */
+.artwork-gallery{gap:24px;padding-top:18px;padding-bottom:90px;align-items:stretch}
+.artwork-tile{height:auto;display:flex;flex-direction:column;background:#fffdf9;border:1px solid #c9c4ba;box-shadow:0 3px 10px #20211d07;overflow:hidden;transition:border-color .25s,box-shadow .25s}
+.product-image{position:relative;display:flex;align-items:center;justify-content:center;height:clamp(300px,56svh,570px);padding:34px;background:#d8d2c6;border-bottom:1px solid #c9c4ba}
+.artwork-tile:nth-child(2) .product-image{background:#c9cec7}
+.artwork-tile:nth-child(3) .product-image{background:#c5cdd1}
+.artwork-tile .product-image img{width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 8px 7px #25231f30);transition:transform .5s cubic-bezier(.2,.7,.2,1)}
+.product-badge{position:absolute;top:13px;left:13px;font-size:9px;letter-spacing:1px;text-transform:uppercase;background:#fffdf9e8;color:#38392f;padding:7px 9px;border:1px solid #20211d18}
+.product-caption{padding:22px;display:flex;flex-direction:column;gap:22px;flex:1;justify-content:space-between}
+.product-caption h2{font:26px/1.12 'Libre Caslon Display',serif;margin:0 0 10px;overflow-wrap:anywhere}
+.product-caption p{font-size:12px;margin:0;color:#64645c}
+.product-view{border-top:1px solid #dedbd3;padding-top:14px;display:flex;align-items:center;justify-content:space-between;font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:.7px}
+.product-view svg{width:17px;height:17px}
+.artwork-tile:hover{border-color:#55584b;box-shadow:0 8px 22px #20211d14}
+.artwork-tile:hover .product-image img{transform:translateY(-3px)}
+.artwork-tile:focus-visible{outline:2px solid var(--ink);outline-offset:5px}
+.listing-product{gap:36px}.listing-image{padding:30px;background:#d8d2c6;border:1px solid #c1bbae}
+.listing-image img{height:68svh;filter:drop-shadow(0 10px 9px #25231f30)}
+.listing-image p{color:#42453b;opacity:1;font-size:11px}
+.listing-summary{max-width:none;padding:34px;background:#fffdf9;border:1px solid #d2cec5}
+.listing-summary .section-label{display:inline-block;background:#ecebe3;padding:7px 9px;font-size:9px}
+.listing-price{padding-bottom:18px;border-bottom:1px solid #dedbd3;font-size:25px}
+.purchase-unavailable{background:#e8e7df;border:1px solid #d2d1c7;color:#66685d}
+@media(max-width:900px){.product-image{padding:22px;height:390px}.product-caption{padding:18px}.product-caption h2{font-size:23px}.listing-product{gap:24px}.listing-summary{padding:24px}}
+@media(max-width:600px){.artwork-gallery{gap:14px;padding-top:8px}.product-image{height:260px;padding:18px 12px}.product-badge{font-size:7px;padding:5px 6px;top:8px;left:8px}.product-caption{padding:14px;gap:17px}.product-caption h2{font-size:22px}.product-caption p{font-size:10px;line-height:1.5}.product-view{font-size:8px;letter-spacing:.3px;gap:5px}.product-view svg{width:13px;height:13px}.listing-image{padding:22px}.listing-image img{height:52svh}.listing-summary{padding:24px}.listing-summary h1{font-size:38px}}
